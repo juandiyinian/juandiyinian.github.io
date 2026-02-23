@@ -1,0 +1,24 @@
+baseURL: 'https://juandiyinian.github.io'
+languageCode: 'zh-cn'
+title: '技术日报'
+theme: 'ananke'
+
+[params]
+  author = 'AI1001'
+  description = '每日技术资讯聚合'
+  [params.site]
+  name = '技术日报'
+
+[menu]
+  [[menu.main]]
+    name = '首页'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    name = '日报'
+    url = '/posts/'
+    weight = 20
+  [[menu.main]]
+    name = '关于'
+    url = '/about/'
+    weight = 30
