@@ -24,26 +24,26 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Init submodules
+        run: |
+          git submodule update --init --recursive
+          ls -la themes/
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
 
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}
         run: |
-          echo "Base URL: $HUGO_BASEURL"
           hugo \
             --gc \
-            --minify
+            --minify \
+            --baseURL "https://juandiyinian.github.io/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
